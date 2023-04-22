@@ -6,13 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/shareText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:minHeight="48dp"
+        android:text="Доброе утро мы из России!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.052" />
+
+    <ImageView
+        android:id="@+id/shareImg"
+        android:layout_width="262dp"
+        android:layout_height="210dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/shareText"
+        app:layout_constraintStart_toStartOf="@+id/shareText"
+        app:layout_constraintTop_toBottomOf="@+id/shareText"
+        app:srcCompat="@drawable/image" />
+
+    <Button
+        android:id="@+id/btnShareText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Поделиться текстом"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shareImg" />
+
+    <Button
+        android:id="@+id/btnshareImg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Поделиться картинкой"
+        app:layout_constraintEnd_toEndOf="@+id/btnShareText"
+        app:layout_constraintStart_toStartOf="@+id/btnShareText"
+        app:layout_constraintTop_toBottomOf="@+id/btnShareText" />
+
+    <Button
+        android:id="@+id/btnShareAll"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Поделиться картинкой с тектом"
+        app:layout_constraintEnd_toEndOf="@+id/btnshareImg"
+        app:layout_constraintStart_toStartOf="@+id/btnshareImg"
+        app:layout_constraintTop_toBottomOf="@+id/btnshareImg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
