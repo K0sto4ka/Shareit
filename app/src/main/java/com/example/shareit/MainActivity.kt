@@ -51,8 +51,27 @@ class MainActivity : AppCompatActivity() {
             }
         }
         bind.btnShareAll.setOnClickListener {
+            textToShare = bind.shareText.text.toString()
+            if(textToShare.isEmpty()){
+                showToast("Введите текст")
+            } else if (imageUri ==null){
+                showToast("Выберите картинку")
 
+            }else{
+                sharedAll()
+            }
         }
+    }
+
+    private fun sharedAll() {
+        val contentUri = getContentUri()
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "image/png"
+        intent.putExtra(Intent.EXTRA_STREAM, contentUri)
+        intent.putExtra(Intent.EXTRA_TEXT, textToShare)
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Текст и картинка из приложения SHAREit")
+        intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+        startActivity(Intent.createChooser(intent, "Выберите приложение, уважаемый чурка:"))
     }
 
     private fun shareImage() {
@@ -116,4 +135,5 @@ class MainActivity : AppCompatActivity() {
             showToast("Картинку выбрать не вариант!")
         }
     }
+
 }
